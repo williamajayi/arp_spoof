@@ -10,6 +10,6 @@ Requirements:
 
 Usage:
 
-python arp_spoof.py -i [interface]
+python arp_spoof.py -i [interface] -t [Destination IP Address] -s [Spoof IP Address]
 
-python3 arp_spoof.py -i [interface]
+python3 arp_spoof.py -i [interface] -t [Destination IP Address] -s [Spoof IP Address]
