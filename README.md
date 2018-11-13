@@ -1,1 +1,15 @@
-# arp_spoof
+# ARP Spoof
+
+Simple program to poison an ARP table by sending spoofed packets to a target on the network
+
+Requirements:
+
+[+]  Python 3.0 and above
+
+[+]  Scapy 2.2 and above (pip install scapy)
+
+Usage:
+
+python arp_spoof.py -i [interface]
+
+python3 arp_spoof.py -i [interface]
