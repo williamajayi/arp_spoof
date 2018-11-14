@@ -14,4 +14,8 @@ python arp_spoof.py -i [interface] -t [Destination IP Address] -s [Spoof IP Addr
 
 python3 arp_spoof.py -i [interface] -t [Destination IP Address] -s [Spoof IP Address]
 
-Run shell command to enable IP forwarding: echo 1 > /proc/sys/net/ipv4/ip_forward
+Program automatically runs shell command to enable/disable IP forwarding using the following commands: 
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+echo 0 > /proc/sys/net/ipv4/ip_forward

