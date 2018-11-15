@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 import scapy.all as scapy
-import time, sys, subprocess
+import time, subprocess
+import re
 import argparse
 
 # Create function to pass arguments while calling the program
